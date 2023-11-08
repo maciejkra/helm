@@ -52,19 +52,45 @@ helm show values workshop/hello-world # gets information about the chart
 helm get values <release> # gets information about the release
 ```
 
-## Customize values
-
-
+## Customize values and upgrade
 
 ```sh
-helm show values bitnami/wordpress
-echo '{mariadb.auth.database: user0db, mariadb.auth.username: user0}' > values.json
-helm install -f values.jsons bitnami/wordpress --generate-name
-helm get values happy-panda
+helm upgrade --install --atomic --generate-name workshop/hello-world -n <namespace> --create-namespace --set <key>=<value>
+```
+or
+```sh
+helm upgrade --install --atomic --generate-name workshop/hello-world -n <namespace> --create-namespace --set-file <value file>
 ```
 
-Upgrade
+# Task :)
+Get some value from `workshop/hello-world` and update the release - check if it works.
+
+If everything is ok perform rollback with
+
 ```sh
-helm upgrade -f values.jsons happy-panda bitnami/wordpress
-helm rollback happy-panda 1
+helm status <release>           # This command shows the status of a named release.
+helm history <release>          # Historical revisions for a given release.
+helm rollback <release> <revision>
 ```
+
+
+
+
+
+## Now let's try something hard...
+
+```sh
+helm pull workshop/hello-world --untar=true
+```
+
+## Remove the release
+```sh
+helm uninstall <release>
+```
+
+
+# Useful links
+* [Helm cheat sheet](https://helm.sh/docs/intro/cheatsheet/)
+* [Helm qucikstart guide](https://helm.sh/docs/intro/quickstart/)
+* [Helm using helm](https://helm.sh/docs/intro/using_helm/)
+* [Helm charts](https://helm.sh/docs/topics/charts/)
