@@ -46,6 +46,7 @@ Add a value where:
    1. name - that will be taken from the index of value file
    2. cronjob shedule - that will be taken from the calue of the value file
 3. make a `default` value for the cronjob in the template  `"* * * * *"` if it is not defined
+4. Add `NOTES.txt` file to the templates to show post install/upgrade information
 
 example for the 2 point:
 ```yaml
@@ -53,3 +54,6 @@ cronjobs:
   cronjob1: "* * * * *"
   cronjob2: "*/2 * * * *"
 ```
+
+## Useful links
+[Some Tips and Tricks](https://helm.sh/docs/howto/charts_tips_and_tricks/)
