@@ -1,0 +1,46 @@
+---
+# Source: python-api/templates/redis-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app.kubernetes.io/name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+      app.kubernetes.io/name: app
+  template:
+    metadata:
+      labels:
+        app: redis
+        app.kubernetes.io/name: app
+    spec:
+      containers:
+      - name: redis
+        image: "redis:alpine"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 70Mi
+          limits:
+            cpu: 0.2
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+        readinessProbe:
+          tcpSocket:
+            port: 6379
+        livenessProbe:
+          exec:
+            command: ["redis-cli", "ping"]
+        volumeMounts:
+        - mountPath: /data
+          name: pvc-volume
+      volumes:
+      - name: pvc-volume
+        persistentVolumeClaim:
+          claimName: redis-pvc

@@ -1,0 +1,44 @@
+---
+# Source: python-api/templates/python-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "python-api"
+  labels:
+    app.kubernetes.io/name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-api
+      app.kubernetes.io/name: app
+  template:
+    metadata:
+      labels:
+        app: python-api
+        app.kubernetes.io/name: app
+    spec:
+      containers:
+      - name: python-api
+        image: "krajewskim/python-api:new"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 70Mi
+          limits:
+            cpu: 0.2
+            memory: 100Mi
+        ports:
+        - containerPort: 5002
+          name: api
+        envFrom:
+          - configMapRef:
+              name: python-cm
+        readinessProbe:
+          tcpSocket:
+            port: api
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: api

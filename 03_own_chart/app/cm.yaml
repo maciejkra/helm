@@ -1,0 +1,12 @@
+---
+# Source: python-api/templates/cm.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: python-cm
+  labels:
+    app.kubernetes.io/name: app
+data:
+  LOG_LEVEL: DEBUG
+  REDIS_HOST: redis-service
+  REDIS_PORT: "6379"

@@ -1,0 +1,29 @@
+---
+# Source: python-api/templates/cronjob.yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: python-counter
+  labels:
+    app.kubernetes.io/name: app
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Replace
+  jobTemplate:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: app
+        spec:
+          containers:
+          - name: hello
+            image: nginx
+            args:
+            - curl
+            - -XPOST
+            - python-api/api/v1/info
+          restartPolicy: Never
