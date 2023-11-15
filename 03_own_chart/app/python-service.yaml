@@ -1,5 +1,3 @@
----
-# Source: python-api/templates/python-service.yaml
 apiVersion: v1
 kind: Service
 metadata:

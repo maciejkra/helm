@@ -1,6 +1,6 @@
 ## Useful links
-[Chart Repostiory](https://helm.sh/docs/topics/chart_repository/)
-[Chart OCI Registry](https://helm.sh/docs/topics/registries/)
+* [Chart Repostiory](https://helm.sh/docs/topics/chart_repository/)
+* [Chart OCI Registry](https://helm.sh/docs/topics/registries/)
 
 ## Making a package and pushing it
 ```sh

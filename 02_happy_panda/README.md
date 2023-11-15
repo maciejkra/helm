@@ -9,7 +9,7 @@ helm install my-release oci://registry-1.docker.io/bitnamicharts/wordpress
 # Useful links
 * [Helm general conventions](https://helm.sh/docs/chart_best_practices/conventions/)
 * [Labels and Annotations](https://helm.sh/docs/chart_best_practices/labels/)
-* [Values](https://helm.sh/docs/chart_best_practices/values/) (check `range`!!)
+* [Values](https://helm.sh/docs/chart_best_practices/values/)
 * [Template Functions and Pipelines](https://helm.sh/docs/chart_template_guide/functions_and_pipelines/)
 * **[Flow Control](https://helm.sh/docs/chart_template_guide/control_structures/)** 
 * [Variables](https://helm.sh/docs/chart_template_guide/variables/#helm) (check `range`!!)

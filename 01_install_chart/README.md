@@ -14,9 +14,6 @@ helm search repo workshop
 ```sh
 helm install <release> workshop/hello-world -n <namespace>
 ```
-or
-```sh
-helm install --generate-name workshop/hello-world -n <namespace>
 ```
 or
 ```sh
@@ -24,15 +21,15 @@ helm install --generate-name workshop/hello-world -n <namespace>
 ```
 or
 ```sh
-helm upgrade --install --generate-name workshop/hello-world -n <namespace>
+helm upgrade --install <release> workshop/hello-world -n <namespace>
 ```
 or
 ```sh
-helm upgrade --install --generate-name workshop/hello-world -n <namespace> --create-namespace
+helm upgrade --install <release> workshop/hello-world -n <namespace> --create-namespace
 ```
 or 
 ```sh
-helm upgrade --install --atomic --generate-name workshop/hello-world -n <namespace> --create-namespace
+helm upgrade --install --atomic <release> workshop/hello-world -n <namespace> --create-namespace
 ```
 or just
 ```sh
@@ -55,11 +52,11 @@ helm get values <release> # gets information about the release
 ## Customize values and upgrade
 
 ```sh
-helm upgrade --install --atomic --generate-name workshop/hello-world -n <namespace> --create-namespace --set <key>=<value>
+helm upgrade --install --atomic <release> workshop/hello-world -n <namespace> --create-namespace --set <key>=<value>
 ```
 or
 ```sh
-helm upgrade --install --atomic --generate-name workshop/hello-world -n <namespace> --create-namespace --set-file <value file>
+helm upgrade --install --atomic <release> workshop/hello-world -n <namespace> --create-namespace --set-file <value file>
 ```
 
 # Task :)

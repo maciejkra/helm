@@ -1,5 +1,3 @@
----
-# Source: python-api/templates/redis-pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
