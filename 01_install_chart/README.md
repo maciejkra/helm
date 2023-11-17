@@ -14,7 +14,7 @@ helm search repo workshop
 ```sh
 helm install <release> workshop/hello-world -n <namespace>
 ```
-```
+
 or
 ```sh
 helm install --generate-name workshop/hello-world -n <namespace>
