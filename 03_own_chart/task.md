@@ -37,14 +37,14 @@ curl -XPOST python.127.0.0.1.nip.io/api/v1/info #to increase the counter
 ```
 
 ### Second Part
-Create a seperate value file (different host in ingress) and lunch it in different namespace it should still be working.
+Create a separate value file (different host in ingress) and launch it in different namespace it should still be working.
 
 ### Third Part
 Add a value where:
-1. you can define a registry that will be put in fron of the image (if defined) - it should be defined without `/`
-2. create 2 cronjobs that will be created with `range` funcion. Each cronjob should have a different
+1. you can define a registry that will be put in front of the image (if defined) - it should be defined without `/`
+2. create 2 cronjobs that will be created with `range` function. Each cronjob should have a different
    1. name - that will be taken from the index of value file
-   2. cronjob shedule - that will be taken from the calue of the value file
+   2. cronjob schedule - that will be taken from the value of the value file
 3. make a `default` value for the cronjob in the template  `"* * * * *"` if it is not defined
 4. Add `NOTES.txt` file to the templates to show post install/upgrade information
 
