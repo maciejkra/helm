@@ -4,7 +4,7 @@ Usually in secrets.
 To check how data is stored just type:
 
 ```sh
-helm get secrets
+kubectl get secrets
 kubectl get secrets sh.helm.release.<name> -o json | jq .data.release | tr -d '"' | base64 -d | base64 -d | gzip -d 
 ```
 
